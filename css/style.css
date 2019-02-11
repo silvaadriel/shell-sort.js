@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#array {
+  position: absolute;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+#array span {
+  display: inline-block;
+  position: relative;
+  background: #000;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  padding-top: 12px;
+  box-sizing: border-box;
+  margin-right: 10px;
+  transition: .2s ease;
+}
+
+#array span.active {
+  transform: translate3d(0,60px,0);
+  background-color: red;
+}
