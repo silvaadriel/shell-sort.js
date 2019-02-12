@@ -1,11 +1,13 @@
+import { insertionSort } from 'insertionSort';
+
 const array = document.querySelector('#array');
 
-const numbersArray = [9, 2, 1, 0, 5, 7, 8, 3, 4, 6];
+const numbersList = [9, 2, 1, 0, 5, 7, 8, 3, 4, 6];
 
-numbersArray.forEach((number) => {
-  const element = document.createElement('span');
-  element.innerText = number;
-  array.appendChild(element);
+numbersList.forEach((number) => {
+  const spanElement = document.createElement('span');
+  spanElement.innerText = number;
+  array.appendChild(spanElement);
 });
 
 const listItens = document.querySelectorAll('#array span');
@@ -73,12 +75,12 @@ const insertionSort = (array, { i, j, aux, gap, isInsertionSort }) => {
   return { i, j, aux, gap, isInsertionSort };
 }
 
-function start(array) {
+function startSorting(numbersList) {
   let obj = {
-    i: getGap(array),
+    i: getGap(numbersList),
     j: 0,
     aux: 0,
-    gap: getGap(array),
+    gap: getGap(numbersList),
     isInsertionSort: false
   };
 
@@ -86,12 +88,12 @@ function start(array) {
     if (obj.gap === 0) clearInterval(loop);
 
     if (!obj.isInsertionSort) {
-      obj = shellSort(array, obj);
+      obj = shellSort(numbersList, obj);
     } else {
-      obj = insertionSort(array, obj);
+      obj = insertionSort(numbersList, obj);
     }
 
   }, 350);
 }
 
-start(numbersArray);
+startSorting(numbersList);
