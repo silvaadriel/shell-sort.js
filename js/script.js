@@ -1,4 +1,4 @@
-import startSorting from './sort';
+import startSorting from './sort.js';
 import structureArray from './arrayStructure.js';
 import numbersToBeSorted from './numbersToBeSorted.js'
 
