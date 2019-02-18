@@ -6,7 +6,7 @@ let currentIteration = 0;
     removeActiveClass(listItens);
     addActiveClass(iterationList[currentIteration], listItens);
     
-    if (iterationList[currentIteration].swapElement) swapElement(iterationList[currentIteration], listItens);
+    swapElement(iterationList[currentIteration], listItens);
 
     currentIteration = nextIteration(currentIteration);
   }, delay);
@@ -23,6 +23,8 @@ function addActiveClass(nodeElement, nodeList) {
 }
 
 function swapElement(currentIterartion, nodeList) {
+  if (!currentIterartion.swapElement) return;
+
   currentIterartion.swapElement.reduce((accumulator, currentValue) => {
     const accumulatorPosition = nodeList[accumulator].style.left;
     const currentValuePosition = nodeList[currentValue].style.left;

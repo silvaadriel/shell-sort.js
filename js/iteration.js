@@ -10,7 +10,7 @@ export default function Iteration() {
   }
 
   this.addActiveClass = function(...activeElement) {
-    arrayIteration.push({ activeElement });
+    arrayIteration.push({ activeElement, swapElement: false });
   }
 
   this.swap = function(...swapElement) {
