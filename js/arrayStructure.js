@@ -18,7 +18,7 @@ function centralize(nodeList, array) {
 
 function appendStructuredArray(nodeList, structuredArray) {
   centralize(nodeList, structuredArray);
-  array.forEach((element) => {
+  structuredArray.forEach((element) => {
     nodeList.append(element);
   });
 };
