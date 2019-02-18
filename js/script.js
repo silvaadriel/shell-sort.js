@@ -1,20 +1,13 @@
-import shellSort from './shellSort.js';
-import arrayStructure from './arrayStructure.js';
-import animate from './animate.js';
+import startSorting from './sort';
+import structureArray from './arrayStructure.js';
+import numbersToBeSorted from './numbersToBeSorted.js'
 
-const htmlUlElement = document.querySelector('#array');
+const ulHtmlElement = document.querySelector('#array');
 
-const numbersArray = [9, 2, 1, 0, 5, 7, 8, 3, 4, 6, 10, 12, 11];
+const structedArrayHtml = structureArray.createStructuredArray(numbersToBeSorted());
 
-const htmlArrayStructure = arrayStructure.createArrayStructure(numbersArray);
+structureArray.appendStructuredArray(ulHtmlElement, structedArrayHtml);
 
-arrayStructure.appendArrayStructure(htmlUlElement, htmlArrayStructure);
+const itemsList = document.querySelectorAll('#array li');
 
-const listItens = document.querySelectorAll('#array li');
-
-function startSorting(numbersArray, nodeList) {
-  const iteration = shellSort(numbersArray);
-  animate(iteration, nodeList, 500);
-}
-
-startSorting(numbersArray, listItens);
+startSorting(numbersToBeSorted(), itemsList);
