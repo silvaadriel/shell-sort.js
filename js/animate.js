@@ -1,14 +1,19 @@
-export default function animate(iterationList, listItens, delay) {
+export default function animate(iterationList, listItens, delay, playbackStatus) {
 let currentIteration = 0;
   const animationLoop = setInterval(() => {
-    if (currentIteration === iterationList.length) clearInterval(animationLoop);
+    if (currentIteration === iterationList.length) {
+      clearInterval(animationLoop);
+      removeActiveClass(listItens);
+      return;
+    }
 
-    removeActiveClass(listItens);
-    addActiveClass(iterationList[currentIteration], listItens);
-    
-    swapElement(iterationList[currentIteration], listItens);
+    if (!playbackStatus.isPaused) {
+      removeActiveClass(listItens);
+      addActiveClass(iterationList[currentIteration], listItens);
+      swapElement(iterationList[currentIteration], listItens);
+      currentIteration = nextIteration(currentIteration);
+    }
 
-    currentIteration = nextIteration(currentIteration);
   }, delay);
 }
 
@@ -23,7 +28,7 @@ function addActiveClass(nodeElement, nodeList) {
 }
 
 function swapElement(currentIterartion, nodeList) {
-  if (!currentIterartion.swapElement) return;
+  if (!currentIterartion.swapElement.length) return;
 
   currentIterartion.swapElement.reduce((accumulator, currentValue) => {
     const accumulatorPosition = nodeList[accumulator].style.left;

@@ -1,25 +1,38 @@
 import startSorting from './sort.js';
-import structureArray from './arrayStructure.js';
-import { numbersToBeSorted } from './numbersToBeSorted.js';
+import { numbersToBeSorted } from './numbersToBeSorted.js'
+import { Button } from './controls.js';
+import arrayStructure from './arrayStructure.js';
 
-const ulHtmlElement = document.querySelector('#array');
+const playbackStatus = {
+  isPaused: false
+};
 
-const btnStart = document.querySelector('#btnStart');
-const btnReset = document.querySelector('#btnReset');
+const handleStartSorting = () => {
+  startSorting(numbersToBeSorted(), arrayStructure.getItemsList(), playbackStatus);
+  btnSort.disabled(true);
+  btnPlayPause.disabled(false);
+  playbackStatus.isPaused = false;
+};
 
-btnStart.addEventListener('click', (event) => {
-  event.preventDefault();
-  event.currentTarget.disabled = true;
-  btnReset.disabled = false;
-  const itemsList = document.querySelectorAll('#array li');
-  startSorting(numbersToBeSorted(), itemsList);
+const btnSort = new Button('#btnSort');
+btnSort.onClick(handleStartSorting);
+
+btnSort.keyPress('Enter');
+
+const btnPlayPause = new Button('#btnPlayPause');
+btnPlayPause.onClick(() => {
+  playbackStatus.isPaused = !playbackStatus.isPaused;
+});
+btnPlayPause.disabled(true);
+btnPlayPause.keyPress('Space');
+
+const btnReset = new Button('#btnReset');
+btnReset.onClick(() => {
+  btnPlayPause.disabled(true);
+  btnSort.disabled(false);
+  arrayStructure.render(numbersToBeSorted());
 });
 
-btnReset.addEventListener('click', (event) => {
-  event.preventDefault();
-  event.currentTarget.disabled = true;
-  btnStart.disabled = false;
-  structureArray.render(numbersToBeSorted());
-});
+btnReset.keyPress('Escape');
 
-structureArray.render(numbersToBeSorted());
+arrayStructure.render(numbersToBeSorted());
