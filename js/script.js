@@ -1,14 +1,16 @@
 import startSorting from './sort.js';
-import { numbersToBeSorted } from './numbersToBeSorted.js'
+import { getNumbersToBeSorted, setNumbersToBeSorted } from './numbersToBeSorted.js'
 import { Button } from './controls.js';
 import arrayStructure from './arrayStructure.js';
+
+setNumbersToBeSorted();
 
 const playbackStatus = {
   isPaused: false
 };
 
 const handleStartSorting = () => {
-  startSorting(numbersToBeSorted(), arrayStructure.getItemsList(), playbackStatus);
+  startSorting(getNumbersToBeSorted(), arrayStructure.getItemsList(), playbackStatus);
   btnSort.disabled(true);
   btnPlayPause.disabled(false);
   playbackStatus.isPaused = false;
@@ -30,9 +32,17 @@ const btnReset = new Button('#btnReset');
 btnReset.onClick(() => {
   btnPlayPause.disabled(true);
   btnSort.disabled(false);
-  arrayStructure.render(numbersToBeSorted());
+  arrayStructure.render(getNumbersToBeSorted());
 });
 
 btnReset.keyPress('Escape');
 
-arrayStructure.render(numbersToBeSorted());
+const btnRandom = new Button('#btnRandom');
+btnRandom.onClick(() => {
+  setNumbersToBeSorted();
+  btnPlayPause.disabled(true);
+  btnSort.disabled(false);
+  arrayStructure.render(getNumbersToBeSorted());
+});
+
+arrayStructure.render(getNumbersToBeSorted());

@@ -1,5 +1,28 @@
-export const numbersToBeSorted = () => [9, 2, 1, 0, 5, 7, 8, 3, 4, 6, 10, 12, 11];
+const array = [];
+
+const getRandomArray = () => {
+  const arrayLength = Math.floor(Math.random() * (15 - 5) + 5);
+  const numbersToBeSorted = [];
+
+  for (let i = 0; i < arrayLength; i++) {
+    numbersToBeSorted.push(Math.floor(Math.random() * 99));
+  }
+  return numbersToBeSorted;
+};
+
+export const setNumbersToBeSorted = (numbersToBeSortedList = []) => {
+  if (numbersToBeSortedList.length) {
+    array.push(numbersToBeSortedList);
+  } else {
+    array.push(getRandomArray());
+  }
+};
+
+export const getNumbersToBeSorted = () => {
+  return array[array.length - 1];
+};
 
 export default {
-numbersToBeSorted,
-}
+  setNumbersToBeSorted,
+  getNumbersToBeSorted
+};
