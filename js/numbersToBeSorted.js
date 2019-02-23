@@ -1,13 +1,19 @@
 const array = [];
 
 const getRandomArray = () => {
-  const arrayLength = Math.floor(Math.random() * (15 - 5) + 5);
+  const arrayLength = getRandomIntNumber(15, 5);
   const numbersToBeSorted = [];
 
   for (let i = 0; i < arrayLength; i++) {
-    numbersToBeSorted.push(Math.floor(Math.random() * 99));
+    numbersToBeSorted.push(getRandomIntNumber(99, 0));
   }
   return numbersToBeSorted;
+};
+
+const getRandomIntNumber = (max, min) => {
+  return Math.floor(
+    Math.random() * (max - min) + min,
+  );
 };
 
 export const setNumbersToBeSorted = (numbersToBeSortedList = []) => {
