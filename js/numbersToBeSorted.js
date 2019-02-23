@@ -18,9 +18,7 @@ export const setNumbersToBeSorted = (numbersToBeSortedList = []) => {
   }
 };
 
-export const getNumbersToBeSorted = () => {
-  return array[array.length - 1];
-};
+export const getNumbersToBeSorted = () => array[array.length - 1];
 
 export default {
   setNumbersToBeSorted,
