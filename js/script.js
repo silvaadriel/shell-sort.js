@@ -2,8 +2,11 @@ import startSorting from './sort.js';
 import { getNumbersToBeSorted, setNumbersToBeSorted } from './numbersToBeSorted.js'
 import { Button } from './controls.js';
 import arrayStructure from './arrayStructure.js';
+import { clearInformations } from './userfulInformations.js'
+
 
 setNumbersToBeSorted();
+clearInformations();
 
 const playbackStatus = {
   isPaused: false
@@ -33,6 +36,7 @@ btnReset.onClick(() => {
   btnPlayPause.disabled(true);
   btnSort.disabled(false);
   arrayStructure.render(getNumbersToBeSorted());
+  clearInformations();
 });
 
 btnReset.keyPress('Escape');
@@ -43,6 +47,7 @@ btnRandom.onClick(() => {
   btnPlayPause.disabled(true);
   btnSort.disabled(false);
   arrayStructure.render(getNumbersToBeSorted());
+  clearInformations();
 });
 
 arrayStructure.render(getNumbersToBeSorted());

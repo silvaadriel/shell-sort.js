@@ -1,3 +1,5 @@
+import { showInformations } from './userfulInformations.js'
+
 export default function animate(iterationList, listItens, delay, playbackStatus) {
 let currentIteration = 0;
   const animationLoop = setInterval(() => {
@@ -9,6 +11,7 @@ let currentIteration = 0;
 
     if (!playbackStatus.isPaused) {
       removeActiveClass(listItens);
+      showInformations(iterationList[currentIteration], listItens);
       addActiveClass(iterationList[currentIteration], listItens);
       swapElement(iterationList[currentIteration], listItens);
       currentIteration = nextIteration(currentIteration);
