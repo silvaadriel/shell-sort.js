@@ -32,6 +32,13 @@ export default function Iteration() {
   };
 
   this.finished = function() {
-    lastArrayPosition(arrayIteration).finished = true;
+    arrayIteration.push(
+      {
+        activeElement: lastArrayPosition(arrayIteration).activeElement,
+        swapElement: [],
+        usefulInformations: lastArrayPosition(arrayIteration).usefulInformations,
+        finished: true
+      },
+    );
   };
 };
