@@ -127,7 +127,7 @@ ul {
   margin-left: 40px;
 }
 
-#c-secundary {
+#c-secondary {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -139,7 +139,7 @@ ul {
   margin-left: -328px;
 }
 
-#c-secundary > input {
+#c-secondary > input {
   text-align: center;
   border-radius: 6px;
   border-color: #000;
