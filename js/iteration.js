@@ -9,21 +9,29 @@ export default function Iteration() {
     return array[array.length - 1];
   };
 
-  this.addActiveClass = function(...activeElement) {
+  this.addActiveClass = function(usefulInformations, ...activeElement) {
     arrayIteration.push(
       {
         activeElement,
         swapElement: [],
+        usefulInformations,
+        finished: false
       },
     );
   };
 
-  this.swap = function(...swapElement) {
+  this.swap = function(usefulInformations, ...swapElement) {
     arrayIteration.push(
       {
         activeElement: lastArrayPosition(arrayIteration).activeElement,
         swapElement,
+        usefulInformations,
+        finished: false
       },
     );
+  };
+
+  this.finished = function() {
+    lastArrayPosition(arrayIteration).finished = true;
   };
 };
