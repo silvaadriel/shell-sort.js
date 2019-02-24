@@ -7,8 +7,10 @@ export function Button(buttonSelector) {
 
   this.keyPress = (key) => {
     document.addEventListener ('keydown', (event) => {
-      event.preventDefault();
-      if (key === event.code) this.btn.click();
+      if (key === event.code) {
+        event.preventDefault();
+        this.btn.click();
+      }
     });
   };
 
