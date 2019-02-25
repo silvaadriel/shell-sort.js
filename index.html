@@ -8,6 +8,7 @@
   <title>Shell Sort</title>
 </head>
 <body>
+  <div id="background-img"></div>
   <ul id="array">
 
   </ul>
@@ -25,8 +26,13 @@
     <button id="btnPlayPause" class="btn">PLAY/PAUSE</button>
     <button id="btnReset" class="btn">RESET</button>    
     <button id="btnRandom" class="btn">RANDOM ARRAY</button>
-    <button id="btnAddArray" class="btn">ADD ARRAY</button>
+    <button id="btnClear" class="btn">CLEAR ARRAY</button>
   </div>
-  <script type="module" src="js/script.js"></script>
+  <div id="c-secondary">
+    <input type="hidden" name="inputValues" class="input" placeholder="Input your number">
+    <button id="btnAddArray" name="btnDisabled" class="btn">DISPLAY/HIDE INPUT</button>
+    <button id="btnAddArray" name="btnAddArray" class="btn">ADD TO ARRAY</button>
+  </div>
+    <script type="module" src="js/script.js"></script>
 </body>
 </html>

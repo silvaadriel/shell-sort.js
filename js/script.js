@@ -3,9 +3,11 @@ import { getNumbersToBeSorted, setNumbersToBeSorted } from './numbersToBeSorted.
 import { Button } from './controls.js';
 import arrayStructure from './arrayStructure.js';
 import { clearInformations } from './userfulInformations.js'
+import { hiddenDisplayInput } from './hiddenDisplayInput.js';
 
+const ARRAY_TO_BE_SORTED = [];
 
-setNumbersToBeSorted();
+setNumbersToBeSorted(ARRAY_TO_BE_SORTED);
 clearInformations();
 
 const playbackStatus = {
@@ -51,3 +53,30 @@ btnRandom.onClick(() => {
 });
 
 arrayStructure.render(getNumbersToBeSorted());
+
+const disableButton = document.querySelector('button[name=btnDisabled]');
+disableButton.onclick = () => {
+  const input = document.querySelector('.input');
+  hiddenDisplayInput(input);
+};
+
+const clearArray = new Button('#btnClear');
+clearArray.onClick(() => {
+  arrayStructure.render([]);
+});
+
+const addButton = document.querySelector('button[name=btnAddArray]');
+addButton.onclick = () => {
+  const inputValues = document.querySelector('input[name=inputValues]');
+  inputValues.value === ''
+    ? alert('You need to input a number')
+    : ARRAY_TO_BE_SORTED.push(+inputValues.value);
+  setNumbersToBeSorted(ARRAY_TO_BE_SORTED);
+  arrayStructure.render(ARRAY_TO_BE_SORTED);
+  inputValues.value = '';
+};
+
+document.addEventListener('dblclick', () => {
+  const bg = document.querySelector('#background-img');
+  bg.classList.toggle('active');
+});
