@@ -66,7 +66,7 @@ addButton.onclick = () => {
   const inputValues = document.querySelector('input[name=inputValues]');
   inputValues.value === ''
     ? alert('You need to input a number')
-    : ARRAY_TO_BE_SORTED.push(inputValues.value);
+    : ARRAY_TO_BE_SORTED.push(+inputValues.value);
   setNumbersToBeSorted(ARRAY_TO_BE_SORTED);
   arrayStructure.render(ARRAY_TO_BE_SORTED);
   inputValues.value = '';
