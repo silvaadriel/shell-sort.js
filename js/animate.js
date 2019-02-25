@@ -1,8 +1,7 @@
 import { showInformations } from './userfulInformations.js'
 
 export default function animate(iterationList, listItens, delay, playbackStatus) {
-let currentIteration = 0;
-console.log(iterationList);
+let currentIteration = playbackStatus.iterationNumber;
   const animationLoop = setInterval(() => {
     if (currentIteration === iterationList.length) {
       clearInterval(animationLoop);
@@ -10,15 +9,16 @@ console.log(iterationList);
       return;
     }
 
-    if (!playbackStatus.isPaused) {
       removeActiveClass(listItens);
       showInformations(iterationList[currentIteration], listItens);
       addActiveClass(iterationList[currentIteration], listItens);
       swapElement(iterationList[currentIteration], listItens);
+
       currentIteration = nextIteration(currentIteration);
-    }
+      playbackStatus.iterationNumber = currentIteration;
 
   }, delay);
+  playbackStatus.animationLoop = animationLoop;
 }
 
 function removeActiveClass(nodeList) {

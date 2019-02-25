@@ -4,21 +4,20 @@ import { Button } from './controls.js';
 import arrayStructure from './arrayStructure.js';
 import { clearInformations } from './userfulInformations.js'
 import { hiddenDisplayInput } from './hiddenDisplayInput.js';
+import playbackStatus from './playbackStatus.js';
 
 const ARRAY_TO_BE_SORTED = [];
 
 setNumbersToBeSorted(ARRAY_TO_BE_SORTED);
 clearInformations();
 
-const playbackStatus = {
-  isPaused: false
-};
+const playback = playbackStatus();
+
 
 const handleStartSorting = () => {
-  startSorting(getNumbersToBeSorted(), arrayStructure.getItemsList(), playbackStatus);
+  startSorting(getNumbersToBeSorted(), arrayStructure.getItemsList(), playback.getPlaybackStatus());
   btnSort.disabled(true);
   btnPlayPause.disabled(false);
-  playbackStatus.isPaused = false;
 };
 
 const btnSort = new Button('#btnSort');
@@ -28,7 +27,9 @@ btnSort.keyPress('Enter');
 
 const btnPlayPause = new Button('#btnPlayPause');
 btnPlayPause.onClick(() => {
-  playbackStatus.isPaused = !playbackStatus.isPaused;
+  playback.playPause(() => {
+    startSorting(getNumbersToBeSorted(), arrayStructure.getItemsList(), playback.getPlaybackStatus());
+  });
 });
 btnPlayPause.disabled(true);
 btnPlayPause.keyPress('Space');
@@ -39,6 +40,7 @@ btnReset.onClick(() => {
   btnSort.disabled(false);
   arrayStructure.render(getNumbersToBeSorted());
   clearInformations();
+  playback.clearPlaybackStatus();
 });
 
 btnReset.keyPress('Escape');
@@ -50,6 +52,7 @@ btnRandom.onClick(() => {
   btnSort.disabled(false);
   arrayStructure.render(getNumbersToBeSorted());
   clearInformations();
+  playback.clearPlaybackStatus();
 });
 
 arrayStructure.render(getNumbersToBeSorted());
@@ -74,6 +77,10 @@ addButton.onclick = () => {
   setNumbersToBeSorted(ARRAY_TO_BE_SORTED);
   arrayStructure.render(ARRAY_TO_BE_SORTED);
   inputValues.value = '';
+  btnSort.disabled(false);
+  btnPlayPause.disabled(true);
+  playback.clearPlaybackStatus();
+  clearInformations();
 };
 
 document.addEventListener('dblclick', () => {
