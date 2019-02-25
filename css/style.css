@@ -91,7 +91,13 @@ ul {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-left: -328px;
+  margin-left: -407px;
+}
+
+.container > select {
+  margin-right: 40px;
+  border: 2px solid #000;
+  border-radius: 5px;
 }
 
 .btn {
@@ -119,7 +125,7 @@ ul {
   background: #555;
 }
 
-.container > .btn:nth-child(1)::after {
+.container > .btn:nth-child(3)::after {
   content: '(enter)';
   display: block;
   color: #000;
@@ -127,7 +133,7 @@ ul {
   margin-top: 20px;
 }
 
-.container > .btn:nth-child(2)::after {
+.container > .btn:nth-child(4)::after {
   content: '(space)';
   display: block;
   color: #000;
@@ -135,7 +141,7 @@ ul {
   margin-top: 20px;
 }
 
-.container > .btn:nth-child(3)::after {
+.container > .btn:nth-child(5)::after {
   content: '(esc)';
   display: block;
   color: #000;
@@ -143,7 +149,7 @@ ul {
   margin-top: 20px;
 }
 
-.container > .btn:nth-child(4) {
+.container > .btn:nth-child(6) {
   margin-left: 40px;
 }
 
