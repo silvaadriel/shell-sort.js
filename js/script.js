@@ -71,3 +71,8 @@ addButton.onclick = () => {
   arrayStructure.render(ARRAY_TO_BE_SORTED);
   inputValues.value = '';
 };
+
+document.addEventListener('dblclick', () => {
+  const bg = document.querySelector('#background-img');
+  bg.classList.toggle('active');
+});
