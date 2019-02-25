@@ -2,6 +2,7 @@ import { showInformations } from './userfulInformations.js'
 
 export default function animate(iterationList, listItens, delay, playbackStatus) {
 let currentIteration = 0;
+console.log(iterationList);
   const animationLoop = setInterval(() => {
     if (currentIteration === iterationList.length) {
       clearInterval(animationLoop);

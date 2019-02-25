@@ -2,11 +2,13 @@ import startSorting from './sort.js';
 import { getNumbersToBeSorted, setNumbersToBeSorted } from './numbersToBeSorted.js'
 import { Button } from './controls.js';
 import arrayStructure from './arrayStructure.js';
+import { clearInformations } from './userfulInformations.js'
 import { hiddenDisplayInput } from './hiddenDisplayInput.js';
 
 const ARRAY_TO_BE_SORTED = [];
 
 setNumbersToBeSorted(ARRAY_TO_BE_SORTED);
+clearInformations();
 
 const playbackStatus = {
   isPaused: false
@@ -68,8 +70,13 @@ addButton.onclick = () => {
   const inputValues = document.querySelector('input[name=inputValues]');
   inputValues.value === ''
     ? alert('You need to input a number')
-    : ARRAY_TO_BE_SORTED.push(inputValues.value);
+    : ARRAY_TO_BE_SORTED.push(+inputValues.value);
   setNumbersToBeSorted(ARRAY_TO_BE_SORTED);
   arrayStructure.render(ARRAY_TO_BE_SORTED);
   inputValues.value = '';
 };
+
+document.addEventListener('dblclick', () => {
+  const bg = document.querySelector('#background-img');
+  bg.classList.toggle('active');
+});
