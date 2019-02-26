@@ -23,7 +23,7 @@ const handleStartSorting = () => {
 const btnSort = new Button('#btnSort');
 btnSort.onClick(handleStartSorting);
 
-btnSort.keyPress('Enter');
+btnSort.keyPress('KeyS');
 
 const btnPlayPause = new Button('#btnPlayPause');
 btnPlayPause.onClick(() => {
@@ -62,6 +62,14 @@ disableButton.onclick = () => {
   const input = document.querySelector('.input');
   hiddenDisplayInput(input);
 };
+
+const input = document.querySelector('.input');
+input.addEventListener('keydown', (e) => {
+  if (e.code === 'Enter' || e.code === 'NumpadEnter') {
+    e.preventDefault();
+    addButton.click();
+  }
+});
 
 const clearArray = new Button('#btnClear');
 clearArray.onClick(() => {

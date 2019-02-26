@@ -126,7 +126,7 @@ ul {
 }
 
 .container > .btn:nth-child(3)::after {
-  content: '(enter)';
+  content: '(s)';
   display: block;
   color: #000;
   font-size: 10px;
