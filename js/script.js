@@ -71,8 +71,8 @@ clearArray.onClick(() => {
 const addButton = document.querySelector('button[name=btnAddArray]');
 addButton.onclick = () => {
   const inputValues = document.querySelector('input[name=inputValues]');
-  inputValues.value === ''
-    ? alert('You need to input a number')
+  inputValues.value === '' || inputValues.value.match(/\D|\d{3}/g)
+    ? alert('You must enter an integer from 0 to 99')
     : ARRAY_TO_BE_SORTED.push(+inputValues.value);
   setNumbersToBeSorted(ARRAY_TO_BE_SORTED);
   arrayStructure.render(ARRAY_TO_BE_SORTED);
