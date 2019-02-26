@@ -73,6 +73,7 @@ input.addEventListener('keydown', (e) => {
 
 const clearArray = new Button('#btnClear');
 clearArray.onClick(() => {
+  ARRAY_TO_BE_SORTED.length = 0;
   arrayStructure.render([]);
 });
 
