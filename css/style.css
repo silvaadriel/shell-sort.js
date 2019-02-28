@@ -207,3 +207,125 @@ header {
   width: 150px;
   height: 35px;
 }
+
+#slider {
+  width: 100%;
+  background: #fff;
+  z-index: 20;
+  position: absolute;
+  top: 0;
+  color: #1d1d1d;
+}
+
+.slide {
+  padding: 15em 5em;
+}
+
+.title {
+  font-size: 2.2em;
+  text-align: center;
+  margin-top: -40px;
+  margin-bottom: 40px;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 2px;
+  background: #1d1d1d;
+  margin: 10px auto;
+}
+
+.slide .arrays {
+  float: left;
+  margin-left: 180px;
+}
+
+.info {
+  overflow: auto;
+  padding-left: 50px;
+  width: 350px;
+}
+
+.info li {
+  margin-bottom: 50px;
+}
+
+.info li h3 {
+  margin: 15px 0 0 0;
+}
+
+.info.complexity {
+  width: 100%;
+  text-align: center;
+}
+
+.info.complexity img {
+  margin: 0 auto;
+}
+
+.info.complexity li {
+  display: inline-block;
+  width: 500px;
+}
+
+.info.complexity p {
+ font-size: 1em;
+}
+
+.slide p {
+  font-size: 1.875em;
+  line-height: 1.5em;
+  text-align: center;
+  padding: 0 1em;
+}
+
+.slide .arrays .index {
+  color: #1d1d1d;
+  text-align: center;
+  font-size: 1em;
+}
+
+.slide .arrays .index li {
+  display: inline-block;
+  width: 50px;
+  height: 15px;
+  margin-right: 10px;
+}
+
+.slide .array {
+  color: #fff;
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 40px;
+}
+
+.slide .array li {
+  display: inline-block;
+  background: #1d1d1d;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  padding-top: 15px;
+  margin-right: 10px;
+}
+
+.slide .array li.active {
+  background: red;
+}
+
+.slide.conclusion dl {
+  margin: 40px 0 40px 60px;
+}
+
+.slide.conclusion dt {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.slide.conclusion dd {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
