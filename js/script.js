@@ -1,6 +1,6 @@
 import startSorting from './sort.js';
 import { getNumbersToBeSorted, setNumbersToBeSorted } from './numbersToBeSorted.js'
-import { Button } from './controls.js';
+import { Button, SlideControl } from './controls.js';
 import arrayStructure from './arrayStructure.js';
 import { clearInformations } from './userfulInformations.js'
 import { hiddenDisplayInput } from './hiddenDisplayInput.js';
@@ -24,6 +24,21 @@ const btnSort = new Button('#btnSort');
 btnSort.onClick(handleStartSorting);
 
 btnSort.keyPress('KeyS');
+
+
+const slideControl = new SlideControl('#slider');
+slideControl.setNextSlideKey('ArrowRight');
+slideControl.setPreviousSlideKey('ArrowLeft');
+
+const btnSlide = new Button('#btnSlide');
+btnSlide.onClick(() => {
+  const slider = slideControl.getSlider('#slider');
+  slider.classList.toggle('active');
+  slideControl.setCurrentSlideToOne();
+  slider.classList.contains('active')
+    ? btnSlide.btn.innerText = 'FECHAR'
+    : btnSlide.btn.innerText = 'SLIDE';
+});
 
 const btnPlayPause = new Button('#btnPlayPause');
 btnPlayPause.onClick(() => {

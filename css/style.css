@@ -26,6 +26,7 @@ body, p, ul, li, h2, h1, a {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  overflow-y: hidden;
 }
 
 img {
@@ -41,20 +42,22 @@ ul {
   list-style: none;
 }
 
+/* Header */
 header {
   text-align: center;
   font-size: 2em;
   padding-top: 1.5em;
 }
 
+/* Array Indexes */
 #arrayIndexes {
   position: absolute;
   color: #000;
   text-align: center;
   font-size: 1em;
   left: 50%;
-  top: 30%;
-  margin-top: -20px;
+  top: 40%;
+  margin-top: -80px;
 }
 
 #arrayIndexes li {
@@ -67,6 +70,7 @@ header {
   margin-right: 10px;
 }
 
+/* Array */
 #array {
   position: absolute;
   color: #fff;
@@ -93,19 +97,7 @@ header {
   background-color: red;
 }
 
-.container {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  margin-left: -380px;
-}
-
-.container > select {
-  margin-right: 40px;
-  border: 2px solid #000;
-  border-radius: 5px;
-}
-
+/* Button */
 .btn {
   height: 35px;
   min-width: 80px;
@@ -124,6 +116,27 @@ header {
 
 .btn:hover {
   background: red;
+}
+
+#btnSlide {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 30;
+}
+
+/* Container */
+.container {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  margin-left: -380px;
+}
+
+.container > select {
+  margin-right: 40px;
+  border: 2px solid #000;
+  border-radius: 5px;
 }
 
 .container > .btn:disabled {
@@ -160,6 +173,27 @@ header {
   margin-left: 40px;
 }
 
+#c-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 700px;
+  height: 100px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  margin-left: -350px;
+}
+
+#c-secondary > input {
+  text-align: center;
+  border-radius: 6px;
+  border-color: #000;
+  width: 150px;
+  height: 35px;
+}
+
+/* Useful Information Area */
 #usefulInformations {
   text-align: center;
   position: absolute;
@@ -188,26 +222,7 @@ header {
   font-size: 1.5em;
 }
 
-#c-secondary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 700px;
-  height: 100px;
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  margin-left: -350px;
-}
-
-#c-secondary > input {
-  text-align: center;
-  border-radius: 6px;
-  border-color: #000;
-  width: 150px;
-  height: 35px;
-}
-
+/* Slide */
 #slider {
   width: 100%;
   background: #fff;
@@ -215,16 +230,27 @@ header {
   position: absolute;
   top: 0;
   color: #1d1d1d;
+  display: none;
+}
+
+#slider.active {
+  display: block;
 }
 
 .slide {
-  padding: 15em 5em;
+  min-height: 100vh;
+  padding-top: 3.125rem;
+  padding-left: 1.875rem;
+  padding-right: 1.875rem;
+  padding-bottom: calc(100vh / 4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .title {
   font-size: 2.2em;
   text-align: center;
-  margin-top: -40px;
   margin-bottom: 40px;
 }
 
@@ -239,7 +265,6 @@ header {
 
 .slide .arrays {
   float: left;
-  margin-left: 180px;
 }
 
 .info {
@@ -278,7 +303,7 @@ header {
   font-size: 1.875em;
   line-height: 1.5em;
   text-align: center;
-  padding: 0 1em;
+  padding: 0 1.875em;
 }
 
 .slide .arrays .index {
@@ -313,6 +338,20 @@ header {
 
 .slide .array li.active {
   background: red;
+}
+
+.slide .code pre {
+  background: #293134;
+  color: #fff;
+  border-radius: 4px;
+  width: 800px;
+  height: 350px;
+  padding-top: 15px;
+  margin: 0 auto;
+}
+
+.slide .code pre .reservedWord {
+  color: rgb(103, 140, 177);
 }
 
 .slide.conclusion dl {
