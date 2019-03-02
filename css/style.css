@@ -26,6 +26,7 @@ body, p, ul, li, h2, h1, a {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  overflow-y: hidden;
 }
 
 img {
@@ -41,20 +42,22 @@ ul {
   list-style: none;
 }
 
+/* Header */
 header {
   text-align: center;
   font-size: 2em;
   padding-top: 1.5em;
 }
 
+/* Array Indexes */
 #arrayIndexes {
   position: absolute;
   color: #000;
   text-align: center;
   font-size: 1em;
   left: 50%;
-  top: 30%;
-  margin-top: -20px;
+  top: 40%;
+  margin-top: -80px;
 }
 
 #arrayIndexes li {
@@ -67,6 +70,7 @@ header {
   margin-right: 10px;
 }
 
+/* Array */
 #array {
   position: absolute;
   color: #fff;
@@ -93,19 +97,7 @@ header {
   background-color: red;
 }
 
-.container {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  margin-left: -380px;
-}
-
-.container > select {
-  margin-right: 40px;
-  border: 2px solid #000;
-  border-radius: 5px;
-}
-
+/* Button */
 .btn {
   height: 35px;
   min-width: 80px;
@@ -124,6 +116,27 @@ header {
 
 .btn:hover {
   background: red;
+}
+
+#btnSlide {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 30;
+}
+
+/* Container */
+.container {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  margin-left: -380px;
+}
+
+.container > select {
+  margin-right: 40px;
+  border: 2px solid #000;
+  border-radius: 5px;
 }
 
 .container > .btn:disabled {
@@ -160,6 +173,27 @@ header {
   margin-left: 40px;
 }
 
+#c-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 700px;
+  height: 100px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  margin-left: -350px;
+}
+
+#c-secondary > input {
+  text-align: center;
+  border-radius: 6px;
+  border-color: #000;
+  width: 150px;
+  height: 35px;
+}
+
+/* Useful Information Area */
 #usefulInformations {
   text-align: center;
   position: absolute;
@@ -188,22 +222,149 @@ header {
   font-size: 1.5em;
 }
 
-#c-secondary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 700px;
-  height: 100px;
+/* Slide */
+#slider {
+  width: 100%;
+  background: #fff;
+  z-index: 20;
   position: absolute;
-  top: 80%;
-  left: 50%;
-  margin-left: -350px;
+  top: 0;
+  color: #1d1d1d;
+  display: none;
 }
 
-#c-secondary > input {
+#slider.active {
+  display: block;
+}
+
+.slide {
+  min-height: 100vh;
+  padding-top: 3.125rem;
+  padding-left: 1.875rem;
+  padding-right: 1.875rem;
+  padding-bottom: calc(100vh / 4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 2.2em;
   text-align: center;
-  border-radius: 6px;
-  border-color: #000;
-  width: 150px;
-  height: 35px;
+  margin-bottom: 40px;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 2px;
+  background: #1d1d1d;
+  margin: 10px auto;
+}
+
+.slide .arrays {
+  float: left;
+}
+
+.info {
+  overflow: auto;
+  padding-left: 50px;
+  width: 350px;
+}
+
+.info li {
+  margin-bottom: 50px;
+}
+
+.info li h3 {
+  margin: 15px 0 0 0;
+}
+
+.info.complexity {
+  width: 100%;
+  text-align: center;
+}
+
+.info.complexity img {
+  margin: 0 auto;
+}
+
+.info.complexity li {
+  display: inline-block;
+  width: 500px;
+}
+
+.info.complexity p {
+ font-size: 1em;
+}
+
+.slide p {
+  font-size: 1.875em;
+  line-height: 1.5em;
+  text-align: center;
+  padding: 0 1.875em;
+}
+
+.slide .arrays .index {
+  color: #1d1d1d;
+  text-align: center;
+  font-size: 1em;
+}
+
+.slide .arrays .index li {
+  display: inline-block;
+  width: 50px;
+  height: 15px;
+  margin-right: 10px;
+}
+
+.slide .array {
+  color: #fff;
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 40px;
+}
+
+.slide .array li {
+  display: inline-block;
+  background: #1d1d1d;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  padding-top: 15px;
+  margin-right: 10px;
+}
+
+.slide .array li.active {
+  background: red;
+}
+
+.slide .code pre {
+  background: #293134;
+  color: #fff;
+  border-radius: 4px;
+  width: 800px;
+  height: 350px;
+  padding-top: 15px;
+  margin: 0 auto;
+}
+
+.slide .code pre .reservedWord {
+  color: rgb(103, 140, 177);
+}
+
+.slide.conclusion dl {
+  margin: 40px 0 40px 60px;
+}
+
+.slide.conclusion dt {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.slide.conclusion dd {
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }
