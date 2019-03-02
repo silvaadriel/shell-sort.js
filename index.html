@@ -8,9 +8,191 @@
   <title>Shell Sort</title>
 </head>
 <body>
-  <div id="array">
+  <header><h1>Shell Sort</h1></header>
 
+  <div id="background-img"></div>
+
+  <ul id="arrayIndexes"></ul>
+  <ul id="array"></ul>
+
+  <div id="usefulInformations">
+    <span id="numbersComparison">Let's Sort!</span>
+    <label for="gap">Gap: </label>
+    <span id="gap">0</span>
+    <label for="numberOfSwap">Number of Swap: </label>
+    <span id="numberOfSwap">0</span>
   </div>
-  <script src="js/script.js"></script>
+
+  <div class="container">
+    <span>speed</span>
+    <select id="speed">
+      <option value="1.5">0.5x</option>
+      <option value="1" selected>1x</option>
+      <option value="0.5">1.5x</option>
+      <option value="0.25">1.75x</option>
+    </select>
+
+    <button id="btnSort" class="btn">SORT</button>
+    <button id="btnPlayPause" class="btn">PLAY/PAUSE</button>
+    <button id="btnReset" class="btn">RESET</button>    
+    <button id="btnRandom" class="btn">RANDOM ARRAY</button>
+    <button id="btnClear" class="btn">CLEAR ARRAY</button>
+  </div>
+  <div id="c-secondary">
+    <input type="hidden" name="inputValues" class="input" placeholder="Input your number">
+    <button id="btnAddArray" name="btnDisabled" class="btn">DISPLAY/HIDE INPUT</button>
+    <button id="btnAddArray" name="btnAddArray" class="btn">ADD TO ARRAY</button>
+  </div>
+
+  <button id="btnSlide" class="btn">SLIDE</button>
+
+  <div id="slider">
+    <div id="1" class="slide">
+      <div>
+        <h1 class="title">Shell Sort</h1>
+        <p>
+          Criado por Donald Shell em 1959, publicado pela Universidade de Cincinnati, Shell sort é o mais eficiente algoritmo de classificação dentre os de complexidade quadrática. É um refinamento do método de inserção direta.
+        </p>
+      </div>
+    </div>
+
+    <div id="2" class="slide">
+      <div>
+        <h1 class="title">Shell Sort vs Insertion Sort</h1>
+        <p>
+          O algoritmo difere do método de inserção direta pelo fato de no lugar de considerar o array a ser ordenado como um único segmento, ele considera vários segmentos sendo aplicado o método de inserção direta em cada um deles. Basicamente o algoritmo passa várias vezes pela lista dividindo o grupo maior em menores. Nos grupos menores é aplicado o método da ordenação por inserção.
+        </p>
+      </div>
+    </div>
+    
+    <div id="3" class="slide">
+      <div>
+        <h1 class="title">Cálculo do valor do intervalo</h1>
+        <div class="arrays">
+          <ul class="index">
+              <li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li>
+          </ul>
+          <ul class="array">
+            <li class="active">8</li><li>1</li><li>5</li><li>3</li><li class="active">7</li><li>4</li><li>2</li><li>0</li>
+          </ul>
+          <ul class="index">
+              <li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li>
+          </ul>
+          <ul class="array">
+            <li class="active">7</li><li>1</li><li class="active">2</li><li>0</li><li>8</li><li>4</li><li>5</li><li>3</li>
+          </ul>
+          <ul class="index">
+              <li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li>
+          </ul>
+          <ul class="array">
+            <li class="active">2</li><li class="active">0</li><li>5</li><li>1</li><li>7</li><li>3</li><li>8</li><li>4</li>
+          </ul>
+          <ul class="index">
+              <li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li>
+          </ul>
+          <ul class="array">
+            <li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>7</li><li>8</li>
+          </ul>
+        </div>
+        <div class="info">
+          <ul>
+            <li>
+              <h3>Primeira passagem pelo array.</h3>
+              <code>intervalo = comprimentoArray / 2 <br> intervalo igual a 4
+              </code>
+            </li>
+            <li>
+              <h3>Segunda passagem pelo array.</h3>
+              <code>intervalo = intervalo / 2 <br> intervalo igual a 2</code>
+            </li>
+            <li>
+              <h3>Terceira passagem pelo array.</h3>
+              <code>intervalo = intervalo / 2 <br> intervalo igual a 1</code>
+            </li>
+            <li>
+              <h3>Array ordenado.</h3>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="4" class="slide">
+      <div>
+        <h1 class="title">Complexidade</h1>
+        <div class="info complexity">
+          <ul>
+            <li>
+              <h3>Pior caso</h3>
+              <p>Depende da sequência do gap. Melhor conhecida: 
+              <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0c9fd155774e2c0e505f95ff07a4a0f76605bae7"></p>
+            </li>
+            <li>
+              <h3>Caso médio</h3>
+              <p>Depende da sequência do gap</p>
+
+            </li>
+            <li>
+              <h3>Melhor caso</h3>
+              <p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0c9fd155774e2c0e505f95ff07a4a0f76605bae7"></p>
+            </li>
+            <li>
+              <h3>Complexidade de espaços pior caso</h3>
+              <p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6cd9594a16cb898b8f2a2dff9227a385ec183392"></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="5" class="slide">
+      <div>
+        <h1 class="title">Código em C</h1>
+        <div class="code">
+          <pre>
+  <span class="reservedWord">int</span> shellSort(<span class="reservedWord">int</span> *vetor, <span class="reservedWord">int</span> tamanhoVetor) {
+    <span class="reservedWord">int</span> intervalo = tamanhoVetor / 2;
+    <span class="reservedWord">int</span> auxiliar, i, j;
+    <span class="reservedWord">int</span> trocas = 0;
+    
+    <span class="reservedWord">while</span> (intervalo > 0) {
+      <span class="reservedWord">for</span> (i = intervalo; i < tamanhoVetor; i++) {
+        auxiliar = vetor[i];
+        j = i;
+        
+        <span class="reservedWord">while</span> (j >= intervalo && auxiliar < vetor[j - intervalo]) {
+          vetor[j] = vetor[j - intervalo];
+          j = j - intervalo;
+          trocas++;
+        }
+        vetor[j] = auxiliar;
+      }
+      intervalo = intervalo / 2;
+    }
+    <span class="reservedWord">return</span> trocas;
+  }
+          </pre>
+        </div>
+      </div>
+    </div>
+
+    <div id="6" class="slide conclusion">
+      <div>
+        <h1 class="title">Conclusão</h1>
+        <dl>
+          <dt>Vantagens:</dt>
+          <dd>Shell Sort é uma ótima opção para arquivos de tamanho moderado.</dd>
+          <dd>Sua implementação é simples e requer uma quantidade de código pequena.</dd>
+        </dl>
+        <dl>
+          <dt>Desvantagens:</dt>
+          <dd>O tempo de execução do algoritmo é sensível à ordem inicial do arquivo.</dd>
+          <dd>O método não é estável.</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+    <script type="module" src="js/script.js"></script>
 </body>
 </html>
