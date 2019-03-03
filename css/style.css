@@ -354,6 +354,10 @@ header {
   color: rgb(103, 140, 177);
 }
 
+.slide .code pre .number {
+  color: #aa0;
+}
+
 .slide.conclusion dl {
   margin: 40px 0 40px 60px;
 }
