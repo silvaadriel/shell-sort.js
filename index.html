@@ -151,11 +151,11 @@
         <div class="code">
           <pre>
   <span class="reservedWord">int</span> shellSort(<span class="reservedWord">int</span> *vetor, <span class="reservedWord">int</span> tamanhoVetor) {
-    <span class="reservedWord">int</span> intervalo = tamanhoVetor / 2;
+    <span class="reservedWord">int</span> intervalo = tamanhoVetor / <span class="number">2</span>;
     <span class="reservedWord">int</span> auxiliar, i, j;
-    <span class="reservedWord">int</span> trocas = 0;
+    <span class="reservedWord">int</span> trocas = <span class="number">0</span>;
     
-    <span class="reservedWord">while</span> (intervalo > 0) {
+    <span class="reservedWord">while</span> (intervalo > <span class="number">0</span>) {
       <span class="reservedWord">for</span> (i = intervalo; i < tamanhoVetor; i++) {
         auxiliar = vetor[i];
         j = i;
@@ -167,7 +167,7 @@
         }
         vetor[j] = auxiliar;
       }
-      intervalo = intervalo / 2;
+      intervalo = intervalo / <span class="number">2</span>;
     }
     <span class="reservedWord">return</span> trocas;
   }
