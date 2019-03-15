@@ -1,5 +1,7 @@
 /*  Geral  */
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
   box-sizing: inherit;
 }
@@ -11,7 +13,7 @@
   right: 0;
   bottom: 0;
   z-index: -1;
-  background-image: url('../img/milos.gif') ;
+  background-image: url("../img/milos.gif");
   background-size: cover;
 }
 
@@ -19,7 +21,13 @@ html {
   box-sizing: border-box;
 }
 
-body, p, ul, li, h2, h1, a {
+body,
+p,
+ul,
+li,
+h2,
+h1,
+a {
   padding: 0px;
   margin: 0px;
 }
@@ -90,7 +98,7 @@ header {
   border-radius: 5px;
   padding-top: 13px;
   margin-right: 10px;
-  transition: .25s ease;
+  transition: 0.25s ease;
 }
 
 #array li.active {
@@ -105,7 +113,7 @@ header {
   background: #000;
   border: none;
   text-align: center;
-  font-size: .675em;
+  font-size: 0.675em;
   color: #fff;
   font-weight: bold;
   cursor: pointer;
@@ -146,7 +154,7 @@ header {
 }
 
 .container > .btn:nth-child(3)::after {
-  content: '(s)';
+  content: "(s)";
   display: block;
   color: #000;
   font-size: 10px;
@@ -154,7 +162,7 @@ header {
 }
 
 .container > .btn:nth-child(4)::after {
-  content: '(space)';
+  content: "(space)";
   display: block;
   color: #000;
   font-size: 10px;
@@ -162,7 +170,7 @@ header {
 }
 
 .container > .btn:nth-child(5)::after {
-  content: '(esc)';
+  content: "(esc)";
   display: block;
   color: #000;
   font-size: 10px;
@@ -255,7 +263,7 @@ header {
 }
 
 .title::after {
-  content: '';
+  content: "";
   display: block;
   width: 100px;
   height: 2px;
@@ -296,7 +304,7 @@ header {
 }
 
 .info.complexity p {
- font-size: 1em;
+  font-size: 1em;
 }
 
 .slide p {
@@ -343,9 +351,10 @@ header {
 .slide .code pre {
   background: #293134;
   color: #fff;
+  font-size: 1.2em;
   border-radius: 4px;
   width: 800px;
-  height: 350px;
+  height: 400px;
   padding-top: 15px;
   margin: 0 auto;
 }
@@ -355,7 +364,15 @@ header {
 }
 
 .slide .code pre .number {
-  color: #aa0;
+  color: #ffcd22;
+}
+
+.slide .code pre .string {
+  color: #ec7600;
+}
+
+.slide pre {
+  overflow: scroll;
 }
 
 .slide.conclusion dl {
