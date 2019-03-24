@@ -349,7 +349,50 @@
         </div>
       </div>
 
-      <div id="7" class="slide conclusion">
+      <div id="7" class="slide">
+        <div>
+          <h1 class="title">Código em ColonScript</h1>
+          <div class="code">
+            <pre>
+  <span class="reservedWord">f:</span>shellSort(array)
+    <span class="reservedWord">c:</span>arrayCopy = array.slice(<span class="number">0</span>)
+
+    <span class="reservedWord">v:</span>gap = Math.floor(arrayCopy.length / <span class="number">2</span>)
+    <span class="reservedWord">v:</span>aux, j, numberOfSwap = <span class="number">0</span>
+
+    <span class="reservedWord">wl:</span>gap > <span class="number">0</span>
+      <span class="reservedWord">fl:v:</span>i = gap; i < arrayCopy.length; i++
+        aux = arrayCopy[i]
+        j = i
+
+        <span class="reservedWord">wl:</span>j >= gap && aux < arrayCopy[j - gap]
+
+          arrayCopy[j] = arrayCopy[j - gap]
+
+          numberOfSwap++
+          
+          j = j - gap
+        <span class="reservedWord">wl;</span>
+
+        arrayCopy[j] = aux
+      <span class="reservedWord">fl;</span>
+      
+      gap = Math.floor(gap / <span class="number">2</span>)
+    <span class="reservedWord">wl;</span>
+
+    <span class="reservedWord">r:</span>{ arrayCopy, numberOfSwap }
+  <span class="reservedWord">f;</span>
+
+  <span class="reservedWord">c:</span>array = [2,3,65,0,1,25,4,0]
+
+  <span class="reservedWord">!:</span>shellSort(array)
+                        
+          </pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="8" class="slide conclusion">
         <div>
           <h1 class="title">Conclusão</h1>
           <dl>
